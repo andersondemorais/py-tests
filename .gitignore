@@ -1,5 +1,7 @@
 *.env/
 *__pycache__/
 *.vscode/
-*htmlcov/
+*.coverage
+!htmlcov/
+*htmlcov/*
 !htmlcov/index.html
