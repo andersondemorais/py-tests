@@ -7,7 +7,7 @@ def ssum(number) -> int:
     return 0
 
 
-def prime_numbers(end: int) -> []:
+def prime_numbers(end: int) -> list:
     numbers = []
     for num in range(1, end + 1):
         if num != 1 and not any([num % div == 0 for div in range(2, num)]):
@@ -64,3 +64,15 @@ def convert_decimal_to_binary(decimal, complement: bool = False) -> str:
         binnary = binnary.rjust(qnt_bits, "0")
 
     return binnary
+
+
+def x_range(end: int) -> list:
+    return [x for x in xrange(end)]
+
+
+def division_by_zero(number: int):
+    return number / 0
+
+
+def function_not_yet_implemented():
+    pass

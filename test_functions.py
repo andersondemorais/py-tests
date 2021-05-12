@@ -4,7 +4,17 @@ from functions import (
     prime_numbers,
     convert_binary_to_decimal,
     convert_decimal_to_binary,
+    x_range,
+    division_by_zero,
+    function_not_yet_implemented,
 )
+import sys
+
+python2_only = pytest.mark.skipif(sys.version_info > (2, 7), reason="Requires Python2")
+"""
+During test function setup the condition (“sys.version_info > (2, 7)”) is checked. 
+If it evaluates to True, the test function will be skipped with the specified reason.
+"""
 
 
 @pytest.fixture
@@ -46,3 +56,20 @@ def test_function_convert_decimal_to_binary():
     assert convert_decimal_to_binary("-98i") == "0"
     assert convert_decimal_to_binary("31094") == "111100101110110"
     assert convert_decimal_to_binary("65536") == "0"
+
+
+@python2_only
+def test_function_x_range():
+    assert 3 in x_range(10)
+
+
+# skipping a test because it fails
+@pytest.mark.xfail
+def test_function_division_by_zero():
+    assert division_by_zero(1)
+
+
+# skip a test without a condition -> optional reason
+@pytest.mark.skip(reason="Not implemented")
+def test_function_not_yet_implemented():
+    assert function_not_yet_implemented()
