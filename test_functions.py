@@ -2,7 +2,7 @@
 # Using Python 3.x
 
 """
-Using Python pytest
+Simple tests using Python pytest
 """
 __author__ = "Anderson Morais"
 __copyright__ = "Copyright 2020"
@@ -21,6 +21,7 @@ from functions import (
     x_range,
     division_by_zero,
     function_not_yet_implemented,
+    guess_numbers,
 )
 import sys
 
@@ -87,3 +88,10 @@ def test_function_division_by_zero():
 @pytest.mark.skip(reason="Not implemented")
 def test_function_not_yet_implemented():
     assert function_not_yet_implemented()
+
+
+# the @parametrize decorator defines two different (number,birth,age) tuples
+# so that the test_guess_numbers function will run twice using them in turn
+@pytest.mark.parametrize("number,birth,age", [(10, 1958, 63), (82, 1994, 27)])
+def test_guess_numbers(number, birth, age):
+    assert guess_numbers(number, birth) == (number, age)

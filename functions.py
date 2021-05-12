@@ -11,6 +11,8 @@ __date__ = "12-may-2021"
 __version__ = "0.1"
 __status__ = ""
 
+from datetime import datetime
+
 
 def ssum(number) -> int:
     if isinstance(number, int or float):
@@ -90,3 +92,19 @@ def division_by_zero(number: int):
 
 def function_not_yet_implemented():
     pass
+
+
+# returns the choice(number - 2 decimal places) and the age in the current year
+def guess_numbers(number: int, birth: int):
+    current_year = int(datetime.today().strftime("%Y"))
+    choice_num, age = (0, 0)
+
+    if number >= 10 and number < 100:
+        if birth >= 1900 or birth < current_year:
+            ssum = (number * 2 + 5) * 50
+            ssum += current_year - 250 - birth
+
+            choice_num = int(str(ssum)[:2])
+            age = int(str(ssum)[2:])
+
+    return choice_num, age
