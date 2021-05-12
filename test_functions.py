@@ -1,3 +1,17 @@
+# -*- coding: utf-8 -*-
+# Using Python 3.x
+
+"""
+Using Python pytest
+"""
+__author__ = "Anderson Morais"
+__copyright__ = "Copyright 2020"
+__email__ = ""
+__date__ = "12-may-2021"
+__version__ = "0.1"
+__status__ = ""
+
+
 import pytest
 from functions import (
     ssum,
